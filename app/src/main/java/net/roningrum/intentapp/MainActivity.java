@@ -1,13 +1,12 @@
 package net.roningrum.intentapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Switch;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -36,13 +35,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_move_activity_data:
                 //putExtra() merupakan metode untuk menampung pasangan key value. Semua input value didukung oleh metode ini
                 Intent moveWithDataIntent = new Intent(MainActivity.this, MoveWithDataActivity.class);
-                /***EXTRA_NAME dan EXTRA_AGE diambil dari variabel di kelas MoveWithDataActivity
+                /*EXTRA_NAME dan EXTRA_AGE diambil dari variabel di kelas MoveWithDataActivity
                  * kemudian masing masing dimasukkan key berupa nilai yang akan ditampilkan**/
                 moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_NAME, "dicoding");
                 moveWithDataIntent.putExtra(MoveWithDataActivity.EXTRA_AGE, 16);
                 startActivity(moveWithDataIntent);
                 break;
             case R.id.btn_dial_number:
+                //Action_Dial digunakan untuk intent filter dari aplikasi yang bisa menangani action
+                //contoh panggilan
+                // /*Uri = Uninform Resource Intent
+                // fungsi Uri = mengidentifikasikan nama, sumber atau layanan internet
+                // **/
                 String phoneNumber ="08232676061";
                 Intent dialPhoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+phoneNumber));
                 startActivity(dialPhoneIntent);

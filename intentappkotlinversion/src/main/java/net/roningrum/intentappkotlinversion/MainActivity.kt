@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnMoveWithDataActivity: Button = findViewById(R.id.btn_move_activity_data);
+        val btnMoveWithDataActivity: Button = findViewById(R.id.btn_move_activity_data)
         btnMoveWithDataActivity.setOnClickListener(this)
 
         val btnMoveActivity: Button = findViewById(R.id.btn_move_activity)
@@ -34,6 +34,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(moveWithDataActivity)
             }
             R.id.btn_dial_phone->{
+                //Action_Dial digunakan untuk intent filter dari aplikasi yang bisa menangani action
+                //contoh panggilan
+                // /*Uri = Uninform Resource Intent
+                // fungsi Uri = mengidentifikasikan nama, sumber atau layanan internet
+                // **/
                 val phoneNumber = "082327676061"
                 val dialPhone = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
                 startActivity(dialPhone)
